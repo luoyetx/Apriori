@@ -209,7 +209,9 @@ class Apriori(Base):
         if len(self.frequent_itemset) == 0:
             self.generate_frequent_itemset()
         # generate in DFS style
-        for key, val in self.frequent_itemset.items()[1:]:
+        for key, val in self.frequent_itemset.items():
+            if key == 1:
+                continue
             for itemset in val:
                 self._generate_rule(itemset, itemset)
         return self.rule
