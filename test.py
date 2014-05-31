@@ -20,8 +20,17 @@ dataset2 = [
     [2, 4],
 ]
 
+minsup = minconf = 0.6
+
 if __name__ == '__main__':
-    apriori = Apriori(dataset1, 0.6, 0.6)
+    # test1
+    apriori = Apriori(dataset1, minsup, minconf)
+    apriori.run()
+    apriori.print_frequent_itemset()
+    apriori.print_rule()
+    # test2
+    apriori = Apriori(dataset1, minsup, minconf)
+    apriori.set_selected_items(['beer', 'diaper'])
     apriori.run()
     apriori.print_frequent_itemset()
     apriori.print_rule()
