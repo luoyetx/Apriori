@@ -102,7 +102,10 @@ class Apriori(Base):
         self.transaction_list_full_length = len(transaction_list)
         self.minsup = minsup
         self.minconf = minconf
-        self.selected_items = selected_items and frozenset(selected_items)
+        if selected_items is not None and selected_items is not []:
+            self.selected_items = frozenset(selected_items)
+        else:
+            self.selected_items = None
 
         self.frequent_itemset = dict()
         # support for every frequent itemset
@@ -244,7 +247,7 @@ class Apriori(Base):
 
 
 class ImprovedApriori(Apriori):
-    """Use Hash Tree to filter frequent itemsets
+    """Use Hash to filter frequent itemsets
     """
 
     def filter_with_minsup(self, itemsets):
