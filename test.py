@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from apriori import Apriori
+from apriori import Apriori, ImprovedApriori
 
 
 dataset1 = [
@@ -30,6 +30,17 @@ if __name__ == '__main__':
     apriori.print_rule()
     # test2
     apriori = Apriori(dataset1, minsup, minconf)
+    apriori.set_selected_items(['beer', 'diaper'])
+    apriori.run()
+    apriori.print_frequent_itemset()
+    apriori.print_rule()
+    # test3
+    apriori = ImprovedApriori(dataset1, minsup, minconf)
+    apriori.run()
+    apriori.print_frequent_itemset()
+    apriori.print_rule()
+    # test4
+    apriori = ImprovedApriori(dataset1, minsup, minconf)
     apriori.set_selected_items(['beer', 'diaper'])
     apriori.run()
     apriori.print_frequent_itemset()

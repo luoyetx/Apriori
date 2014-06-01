@@ -25,7 +25,7 @@ class Base(object):
         pass
 
     def _after_generate_frequent_itemset(self):
-        """Invoke before generate_frequent_itemset()
+        """Invoked before generate_frequent_itemset()
         """
         pass
 
@@ -40,7 +40,7 @@ class Base(object):
         pass
 
     def _after_generate_rule(self):
-        """Invoke before generate_frequent_itemset()
+        """Invoked before generate_frequent_itemset()
         """
         pass
 
@@ -128,22 +128,22 @@ class Apriori(Base):
                 items.add(item)
         return items
 
-    def filter_with_minsup(self, itemset):
-        """Return subset of itemset which satisfies minsup
+    def filter_with_minsup(self, itemsets):
+        """Return subset of itemsets which satisfies minsup
         and record their support
         """
         local_counter = defaultdict(int)
-        for item in itemset:
+        for itemset in itemsets:
             for transaction in self.transaction_list:
-                if item.issubset(transaction):
-                    local_counter[item] += 1
+                if itemset.issubset(transaction):
+                    local_counter[itemset] += 1
         # filter with counter
         result = set()
-        for item, count in local_counter.items():
+        for itemset, count in local_counter.items():
             support = float(count) / self.transaction_list_full_length
             if support >= self.minsup:
-                result.add(item)
-                self.frequent_itemset_support[item] = support
+                result.add(itemset)
+                self.frequent_itemset_support[itemset] = support
         return result
 
     def _after_generate_frequent_itemset(self):
@@ -225,7 +225,7 @@ class Apriori(Base):
             for itemset in val:
                 for item in itemset:
                     stdout.write('{0} '.format(item))
-                stdout.write('(support = {0})\n'.format(self.frequent_itemset_support[itemset]))
+                stdout.write('(support = {0})\n'.format(round(self.frequent_itemset_support[itemset], 2)))
 
     def print_rule(self):
         """Print out rules
@@ -240,4 +240,30 @@ class Apriori(Base):
             stdout.write('--> ')
             for item in tail:
                 stdout.write('{0} '.format(item))
-            stdout.write('(confidence = {0})\n'.format(confidence))
+            stdout.write('(confidence = {0})\n'.format(round(confidence, 2)))
+
+
+class ImprovedApriori(Apriori):
+    """Use Hash Tree to filter frequent itemsets
+    """
+
+    def filter_with_minsup(self, itemsets):
+        """Return subset of itemset which satisfies minsup
+        and record their support
+        """
+        for itemset in itemsets:
+            k = len(itemset)
+            break
+        local_counter = defaultdict(int)
+        for transaction in self.transaction_list:
+            for itemset in combinations(list(transaction), k):
+                if frozenset(itemset) in itemsets:
+                    local_counter[frozenset(itemset)] += 1
+        # filter with counter
+        result = set()
+        for itemset, count in local_counter.items():
+            support = float(count) / self.transaction_list_full_length
+            if support >= self.minsup:
+                result.add(itemset)
+                self.frequent_itemset_support[itemset] = support
+        return result
