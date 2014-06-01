@@ -222,28 +222,35 @@ class Apriori(Base):
     def print_frequent_itemset(self):
         """Print out frequent itemset
         """
+        stdout.write('======================================================\n')
         stdout.write('Frequent itemset:\n')
         for key, val in self.frequent_itemset.items():
             #stdout.write('frequent itemset size of {0}:\n'.format(key))
             for itemset in val:
-                for item in itemset:
-                    stdout.write('{0} '.format(item))
-                stdout.write('(support = {0})\n'.format(round(self.frequent_itemset_support[itemset], 2)))
+                stdout.write('(')
+                stdout.write(', '.join(itemset))
+                stdout.write(')')
+                stdout.write('  support = {0}\n'.format(round(self.frequent_itemset_support[itemset], 3)))
+        stdout.write('======================================================\n')
 
     def print_rule(self):
         """Print out rules
         """
+        stdout.write('======================================================\n')
         stdout.write('Rules:\n')
         for rule in self.rule:
             head = rule[0][0]
             tail = rule[0][1]
             confidence = rule[1]
-            for item in head:
-                stdout.write('{0} '.format(item))
-            stdout.write('--> ')
-            for item in tail:
-                stdout.write('{0} '.format(item))
-            stdout.write('(confidence = {0})\n'.format(round(confidence, 2)))
+            stdout.write('(')
+            stdout.write(', '.join(head))
+            stdout.write(')')
+            stdout.write(' ==> ')
+            stdout.write('(')
+            stdout.write(', '.join(tail))
+            stdout.write(')')
+            stdout.write('  confidence = {0}\n'.format(round(confidence, 3)))
+        stdout.write('======================================================\n')
 
 
 class ImprovedApriori(Apriori):

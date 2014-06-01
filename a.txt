@@ -1,0 +1,115 @@
+======================================================
+Frequent itemset:
+(peppers)  support = 0.296
+(avocado)  support = 0.363
+(artichok)  support = 0.305
+(bourbon)  support = 0.403
+(soda)  support = 0.318
+(ham)  support = 0.305
+(corned_b)  support = 0.391
+(olives)  support = 0.473
+(chicken)  support = 0.315
+(ice_crea)  support = 0.313
+(sardines)  support = 0.296
+(cracker)  support = 0.488
+(heineken)  support = 0.599
+(steak)  support = 0.227
+(coke)  support = 0.296
+(apples)  support = 0.314
+(hering)  support = 0.486
+(turkey)  support = 0.283
+(baguette)  support = 0.392
+(avocado, artichok)  support = 0.211
+(baguette, heineken)  support = 0.261
+(bourbon, peppers)  support = 0.154
+(heineken, sardines)  support = 0.182
+(heineken, ham)  support = 0.174
+(baguette, cracker)  support = 0.177
+(heineken, olives)  support = 0.203
+(heineken, artichok)  support = 0.252
+(baguette, avocado)  support = 0.215
+(turkey, olives)  support = 0.221
+(bourbon, cracker)  support = 0.24
+(bourbon, soda)  support = 0.155
+(baguette, hering)  support = 0.249
+(heineken, coke)  support = 0.174
+(bourbon, heineken)  support = 0.21
+(baguette, soda)  support = 0.153
+(bourbon, corned_b)  support = 0.153
+(apples, olives)  support = 0.159
+(heineken, avocado)  support = 0.249
+(chicken, cracker)  support = 0.164
+(bourbon, olives)  support = 0.245
+(ice_crea, heineken)  support = 0.184
+(apples, corned_b)  support = 0.151
+(ice_crea, coke)  support = 0.22
+(cracker, artichok)  support = 0.157
+(hering, cracker)  support = 0.201
+(chicken, heineken)  support = 0.201
+(hering, avocado)  support = 0.17
+(heineken, soda)  support = 0.257
+(corned_b, ham)  support = 0.16
+(cracker, olives)  support = 0.185
+(hering, olives)  support = 0.256
+(corned_b, olives)  support = 0.237
+(hering, ham)  support = 0.16
+(soda, cracker)  support = 0.251
+(corned_b, cracker)  support = 0.17
+(olives, ham)  support = 0.158
+(hering, artichok)  support = 0.157
+(ice_crea, sardines)  support = 0.151
+(hering, heineken)  support = 0.288
+(soda, olives)  support = 0.165
+(heineken, cracker)  support = 0.366
+(hering, corned_b)  support = 0.245
+(hering, soda)  support = 0.174
+(peppers, cracker)  support = 0.161
+(avocado, cracker)  support = 0.163
+(ice_crea, olives)  support = 0.155
+(hering, apples)  support = 0.157
+(baguette, hering, heineken)  support = 0.214
+(hering, heineken, cracker)  support = 0.163
+(heineken, soda, cracker)  support = 0.234
+(hering, corned_b, olives)  support = 0.202
+(heineken, avocado, artichok)  support = 0.199
+(bourbon, heineken, cracker)  support = 0.151
+======================================================
+======================================================
+Rules:
+(artichok) ==> (avocado)  confidence = 0.692
+(baguette) ==> (heineken)  confidence = 0.666
+(sardines) ==> (heineken)  confidence = 0.615
+(artichok) ==> (heineken)  confidence = 0.826
+(turkey) ==> (olives)  confidence = 0.781
+(baguette) ==> (hering)  confidence = 0.635
+(avocado) ==> (heineken)  confidence = 0.686
+(bourbon) ==> (olives)  confidence = 0.608
+(coke) ==> (ice_crea)  confidence = 0.743
+(ice_crea) ==> (coke)  confidence = 0.703
+(chicken) ==> (heineken)  confidence = 0.638
+(soda) ==> (heineken)  confidence = 0.808
+(corned_b) ==> (olives)  confidence = 0.606
+(soda) ==> (cracker)  confidence = 0.789
+(cracker) ==> (heineken)  confidence = 0.75
+(heineken) ==> (cracker)  confidence = 0.61
+(corned_b) ==> (hering)  confidence = 0.627
+(hering, heineken) ==> (baguette)  confidence = 0.743
+(baguette, heineken) ==> (hering)  confidence = 0.82
+(baguette, hering) ==> (heineken)  confidence = 0.859
+(hering, cracker) ==> (heineken)  confidence = 0.811
+(soda, cracker) ==> (heineken)  confidence = 0.932
+(soda) ==> (cracker)  confidence = 0.736
+(heineken, cracker) ==> (soda)  confidence = 0.639
+(heineken, soda) ==> (cracker)  confidence = 0.911
+(soda) ==> (heineken)  confidence = 0.736
+(corned_b, olives) ==> (hering)  confidence = 0.852
+(hering, olives) ==> (corned_b)  confidence = 0.789
+(hering, corned_b) ==> (olives)  confidence = 0.824
+(avocado, artichok) ==> (heineken)  confidence = 0.943
+(artichok) ==> (avocado)  confidence = 0.652
+(heineken, artichok) ==> (avocado)  confidence = 0.79
+(artichok) ==> (heineken)  confidence = 0.652
+(heineken, avocado) ==> (artichok)  confidence = 0.799
+(bourbon, cracker) ==> (heineken)  confidence = 0.629
+(bourbon, heineken) ==> (cracker)  confidence = 0.719
+======================================================
