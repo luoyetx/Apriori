@@ -19,7 +19,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description="Apriori CLI app")
     parser.add_argument('-f', dest='input', action='store',
-                        help='input data file *.cvs',
+                        help='input data file *.csv',
                         default=None)
     parser.add_argument('-s', dest='minS', action='store',
                         help='minimum support value',

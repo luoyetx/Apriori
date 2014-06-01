@@ -10,7 +10,7 @@ if __name__ == '__main__':
             if no not in transactions:
                 transactions[no] = []
             transactions[no].append(item)
-    with open('data.cvs', 'w') as f:
+    with open('data.csv', 'w') as f:
         for key, transaction in transactions.items():
             if not flag:
                 f.write('\n')
